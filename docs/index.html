@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PC SAVE PROJECT</title>
+  <meta name="description" content="PC SAVE PROJECT v1.0 release page">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07080d;
+      --panel: rgba(255, 255, 255, 0.075);
+      --line: rgba(255, 255, 255, 0.18);
+      --text: #f7f7fb;
+      --muted: #a7adbd;
+      --cyan: #5ee7ff;
+      --pink: #ff4f9a;
+      --lime: #b7ff5e;
+      --amber: #ffcf5e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(94, 231, 255, 0.24), transparent 32%),
+        radial-gradient(circle at 78% 12%, rgba(255, 79, 154, 0.22), transparent 30%),
+        linear-gradient(145deg, #07080d 0%, #141723 48%, #090b10 100%);
+      overflow-x: hidden;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 42px 0 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 54px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(94, 231, 255, 0.18), rgba(255, 79, 154, 0.18));
+    }
+
+    .hero {
+      min-height: 62vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(54px, 9vw, 116px);
+      line-height: 0.9;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      max-width: 680px;
+      margin: 28px 0 0;
+      color: #d9deea;
+      font-size: clamp(18px, 2.4vw, 26px);
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.08);
+      font-weight: 800;
+    }
+
+    .button.primary {
+      border-color: transparent;
+      color: #061018;
+      background: linear-gradient(135deg, var(--cyan), var(--lime));
+    }
+
+    .terminal {
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.34);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+    }
+
+    .terminal-head {
+      display: flex;
+      gap: 8px;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--pink);
+    }
+
+    .dot:nth-child(2) { background: var(--amber); }
+    .dot:nth-child(3) { background: var(--lime); }
+
+    .terminal-body {
+      padding: 24px;
+      font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+      color: #dce7f7;
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .prompt { color: var(--cyan); }
+    .ok { color: var(--lime); }
+    .warn { color: var(--amber); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .tile {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 22px;
+      min-height: 142px;
+    }
+
+    .tile b {
+      display: block;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .tile p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    footer {
+      margin-top: 58px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      main { width: min(100% - 28px, 680px); padding-top: 28px; }
+      .topbar { margin-bottom: 34px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .grid { grid-template-columns: 1fr; }
+      .terminal-body { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="topbar" aria-label="Project">
+      <div class="brand"><span class="mark">PC</span><span>SAVE PROJECT</span></div>
+      <span>v1.0 · Ren'Py 8.5.2</span>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <h1>PC SAVE PROJECT</h1>
+        <p class="tagline">A desktop Ren'Py release with a clean first build, ready-to-play archives, and checksum-backed downloads.</p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/Dan-0721/PC-SAVE-PROJECT/releases/latest">Download v1.0</a>
+          <a class="button" href="https://github.com/Dan-0721/PC-SAVE-PROJECT">View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="terminal" aria-label="Build details">
+        <div class="terminal-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="terminal-body">
+          <div><span class="prompt">&gt;</span> project.name</div>
+          <div class="ok">PC SAVE PROJECT</div>
+          <br>
+          <div><span class="prompt">&gt;</span> version</div>
+          <div class="ok">1.0</div>
+          <br>
+          <div><span class="prompt">&gt;</span> platforms</div>
+          <div>Windows / Linux / macOS</div>
+          <br>
+          <div><span class="prompt">&gt;</span> status</div>
+          <div class="warn">first public release online</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Highlights">
+      <article class="tile">
+        <b>Ready To Play</b>
+        <p>Download the archive for your platform, extract it, and run the included launcher.</p>
+      </article>
+      <article class="tile">
+        <b>Cross Platform</b>
+        <p>Release assets include a PC package for Windows/Linux and a separate macOS package.</p>
+      </article>
+      <article class="tile">
+        <b>Verified Build</b>
+        <p>SHA256 checksums are published with the release so downloads can be verified.</p>
+      </article>
+    </section>
+
+    <footer>
+      Built with Ren'Py. Published as PC SAVE PROJECT v1.0.
+    </footer>
+  </main>
+</body>
+</html>
