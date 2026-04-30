@@ -1,6 +1,8 @@
 # PC SAVE PROJECT v1.0
 
-First public release of **PC SAVE PROJECT**.
+First public release of **PC SAVE PROJECT**, a Ren'Py GALGAME.
+
+The title can be read as **PC 拯救计划**: in the game, the way to save PC is through your save data.
 
 ## Downloads
 
@@ -14,6 +16,7 @@ First public release of **PC SAVE PROJECT**.
 - Engine: Ren'Py `8.5.2`
 - Build name: `PCSAVEPROJACKT`
 - Built at: `2026-04-30 01:36:16 UTC`
+- Visual assets: generated with ChatGPT
 
 ## Checksums
 
